@@ -19,6 +19,7 @@ conectarDB()
 
 //dependencias de rutas
 const bootcampsRoutes = require('./routes/bootcampRoutes')
+const cursosRoutes = require('./routes/cursosRoutes')
 
 //crear el objeto express
 const app = express()
@@ -26,11 +27,12 @@ const app = express()
 //habilitar express para recivir body en formato json
 app.use(express.json())
 
-//estavlecer rutas del projecto
+//establecer rutas del projecto
 app.use('/api/v1/bootcamps',bootcampsRoutes )
+app.use('/api/v1/courses', cursosRoutes)
 
 //crar el servidor de aplicaciones 
 
 app.listen( process.env.PUERTO, () => { 
-    console.log(`servidr ejecutando en el puerto ${process.env.PUERTO}`.bgCyan.yellow.underline)
+    console.log(`servidor ejecutando en el puerto ${process.env.PUERTO}`.bgCyan.yellow.underline)
 })
